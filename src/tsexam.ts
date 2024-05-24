@@ -4,6 +4,8 @@
 //   return a + b;
 // };
 
+import { profile } from "console";
+
 // //1) 함수에 기본 매개변수를 설정할 때
 // const introduce = (name = "David") => {
 //   console.log(`name: ${name}`);
@@ -197,3 +199,114 @@
 // getLength({
 //   length: 2,
 // });
+
+// 제네릭 타입 응용 : React.js => JSX 문법을 활용한 반복실행,처리 => map
+// 타입정의 허들!!
+// 기존 배열을 가져와서 어떤 연산작업 후 새로운 배열을 생성!!
+// a = [1,2,3,4] => b =["1","2","3"]
+
+// const arr: number[] = [1, 2, 3];
+// const newArr = arr.map((it) => it * 2);
+
+// 기본적인 map 매서드 타입을 unknown으로 정의했을 때
+// const map = (
+//   arr: unknown[],
+//   callback: (item: unknown) => unknown
+// ): unknown[] => {
+//   return [];
+// };
+// map 매서드타입을 타입변수를 활용한 제네릭 형식으로 정의했을 때
+
+// const map = <T, U>(arr: T[], callback: (item: T) => U): U[] => {
+//   let result = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     result.push(callback(arr[i]));
+//   }
+//   return result;
+// };
+
+// map(arr, (it) => it * 2);
+
+// map(arr, (it) => it.toString());
+
+// // forEach 매서드 타입 정의
+
+// const arr2 = [1, 2, 3];
+// const forEach = <T>(arr: T[], callback: (item: T) => void) => {
+//   for (let i = 0; i < arr.length; i++) {
+//     callback(arr[i]);
+//   }
+// };
+
+// 제네릭 응용 : 인터페이스
+
+// interface KeyPair<K, T> {
+//   key: K;
+//   value: T;
+// }
+
+// let keyPair: KeyPair<string, number> = {
+//   key: "Key",
+//   value: 0,
+// };
+
+// let keyPair2: KeyPair<boolean, string[]> = {
+//   key: true,
+//   value: ["1"],
+// };
+
+// interface Map<V> {
+//   [key: string]: V;
+// }
+
+// let stringMap: Map<string> = {
+//   key: "value",
+// };
+
+// let booleanMap: Map<boolean> = {
+//   key: true,
+// };
+
+// type Map2<V> = {
+//   [key: string]: V;
+// };
+
+// let stringMap2: Map2<string> = {
+//   key: "string",
+// };
+
+// interface Students {
+//   type: "student";
+//   school: string;
+// }
+// interface Developer {
+//   type: "developer";
+//   skill: string;
+// }
+// interface User {
+//   name: string;
+//   profile: Students | Developer;
+// }
+
+// const goToSchool = (user: User) => {
+//   if (user.profile.type !== "student") {
+//     console.log("잘 못 오셨습니다.");
+//     return;
+//   }
+//   const school = user.profile.school;
+// };
+
+// const developerUser: User = {
+//   name: "Kevin",
+//   profile: {
+//     type: "developer",
+//     skill: "TS",
+//   },
+// };
+// const studentUser: User = {
+//   name: "Erling",
+//   profile: {
+//     type: "student",
+//     school: "seoul",
+//   },
+// };
