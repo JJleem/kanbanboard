@@ -59,10 +59,10 @@ interface IAreaProps {
 const Area = styled.div<IAreaProps>`
   background-color: ${(props) =>
     props.isDraggingOver
-      ? "skyblue"
+      ? "blue"
       : props.isDraggingFromThis
-      ? "red"
-      : "indigo"};
+      ? "dodgerblue"
+      : "skyblue"};
   flex-grow: 1;
   padding: 10px;
 `;
