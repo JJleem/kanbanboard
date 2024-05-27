@@ -17,7 +17,10 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${(props) => props.theme.bgColor};
     color : ${(props) => props.theme.cardColor};
     line-height: 1.2;
-    overflow: hidden;
+    overflow-x: hidden;
+    @media ${({ theme }) => theme.xs} {
+      /* overflow-x:hidden;  */
+  }
   }
   ul,li {
     list-style:none;

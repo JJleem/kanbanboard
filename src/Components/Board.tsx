@@ -34,13 +34,26 @@ const Board = ({ toDos, boardId }: IBoardProps) => {
 export default Board;
 
 const Wrapper = styled.div`
+  width: 25%;
   padding: 20px 10px;
   padding-top: 30px;
   background-color: ${(props) => props.theme.boardColor};
   border-radius: 5px;
-  min-height: 200px;
+  min-height: 400px;
   display: flex;
   flex-direction: column;
+
+  @media ${({ theme }) => theme.lg} {
+    width: 50%;
+  }
+  @media ${({ theme }) => theme.md} {
+    width: 50%;
+  }
+  @media ${({ theme }) => theme.sm} {
+  }
+  @media ${({ theme }) => theme.xs} {
+    width: 70%;
+  }
 `;
 
 const Title = styled.h2`
@@ -49,6 +62,9 @@ const Title = styled.h2`
   font-size: 18px;
   text-transform: uppercase;
   margin-bottom: 10px;
+  @media ${({ theme }) => theme.xs} {
+    font-size: 16px;
+  }
 `;
 
 interface IAreaProps {
@@ -64,5 +80,5 @@ const Area = styled.div<IAreaProps>`
       ? "dodgerblue"
       : "skyblue"};
   flex-grow: 1;
-  padding: 10px;
+  padding: 20px;
 `;

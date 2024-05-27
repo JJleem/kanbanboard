@@ -92,20 +92,37 @@ export default App;
 const Wrapper = styled.div`
   display: flex;
   width: 100vw;
-  height: 100vh;
-  max-width: 50%;
-  margin: 0 auto;
+  height: fit-content;
+  padding-top: 100px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 30px;
+  margin: 0 auto;
+  @media ${({ theme }) => theme.md} {
+    padding-top: 60px;
+  }
 `;
 const Boards = styled.div`
-  display: grid;
+  display: flex;
   width: 100%;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  height: 100%;
+  gap: 40px;
   margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+  @media ${({ theme }) => theme.lg} {
+    gap: 20px;
+    flex-direction: column;
+  }
+  @media ${({ theme }) => theme.md} {
+    gap: 20px;
+    flex-direction: column;
+  }
+  @media ${({ theme }) => theme.xs} {
+    gap: 20px;
+    flex-direction: column;
+  }
 `;
 const FormWrapper = styled.div`
   width: 100%;
@@ -127,12 +144,27 @@ const InputStlye = styled.input`
   font-size: 20px;
   padding: 10px;
   border-radius: 5px;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+  @media ${({ theme }) => theme.sm} {
+    font-size: 14px;
+    height: 80%;
+  }
 `;
 const BTnStyle = styled.button`
   height: 100%;
   margin-left: 5px;
   border-radius: 5px;
   padding: 10px;
+  border: none;
+  box-shadow: 0px 0px 3px #000;
+  background-color: dodgerblue;
+  @media ${({ theme }) => theme.sm} {
+    font-size: 14px;
+    height: 80%;
+  }
 `;
 const Error = styled.p`
   text-align: center;
@@ -145,12 +177,20 @@ const Title = styled.div`
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 50px;
+  @media ${({ theme }) => theme.sm} {
+    font-size: 25px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
 `;
 const SubTitle = styled.div`
   width: 100%;
   text-align: center;
   font-size: 21px;
   margin-bottom: 20px;
+  @media ${({ theme }) => theme.sm} {
+    font-size: 14px;
+  }
 `;
 const Circle = styled.div`
   position: absolute;
@@ -160,6 +200,10 @@ const Circle = styled.div`
   opacity: 0.5;
   bottom: -250px;
   right: -400px;
+  @media ${({ theme }) => theme.sm} {
+    bottom: -400px;
+    right: -650px;
+  }
 `;
 const CircleTwo = styled.div`
   position: absolute;
@@ -169,4 +213,7 @@ const CircleTwo = styled.div`
   opacity: 0.5;
   top: -250px;
   left: -400px;
+  @media ${({ theme }) => theme.sm} {
+    display: none;
+  }
 `;
