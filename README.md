@@ -9,7 +9,7 @@
 ## Skill
 
 TypeScript
-<br>
+br
 ## 라이브러리
 
 ### Recoil
@@ -27,7 +27,7 @@ TypeScript
 
 * Styled-components 를 활용해 스타일을 정의하고 반응형을 작업했습니다.
 
- <br> 
+<br> 
 ## 페이지 구성
 * 페이지 구성은 한 페이지로 이루어져있으며, Todo를 생성하는 Input, TO_DO 보드, DOING 보드, DONE 보드 로 이루어져있습니다.
 
